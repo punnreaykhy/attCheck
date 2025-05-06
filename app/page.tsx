@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 
-// 13.092391868922656, 103.20396517122114
-
-const TARGET_LOCATION = { lat: 13.092391868922656, lng: 103.20396517122114 };
+const TARGET_LOCATION = { lat: 13.091911551022765, lng: 103.2075473346607 };
 
 function getDistanceFromLatLonInMeters(lat1: number, lon1: number, lat2: number, lon2: number) {
   const R = 6371e3;
@@ -73,9 +71,9 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
-      <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">វត្តមានសិក្ខាសាលា</h1>
+    <main className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors p-6">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+        <h1 className="text-2xl font-bold mb-4 text-center dark:text-white">វត្តមានសិក្ខាសាលា</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -83,13 +81,13 @@ export default function Home() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           />
           <select
             value={group}
             onChange={(e) => setGroup(e.target.value)}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           >
             <option value="">សូមជ្រើសរើសក្រុម</option>
             <option value="1">ក្រុម 1</option>
@@ -106,10 +104,10 @@ export default function Home() {
           <p
             className={`mt-4 text-center font-medium ${
               status === 'success'
-                ? 'text-green-600'
+                ? 'text-green-500'
                 : status === 'error'
-                ? 'text-red-600'
-                : 'text-gray-700'
+                ? 'text-red-500'
+                : 'text-gray-700 dark:text-gray-300'
             }`}
           >
             {message}
@@ -119,4 +117,3 @@ export default function Home() {
     </main>
   );
 }
- 
